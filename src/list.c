@@ -13,7 +13,7 @@ void add(node *head, int x){
     post: a new node containing x is added to the end of the list*/
   assert(head!=NULL);
   node *p = head;
-  while (p->next!=NULL) {
+  while (p->next != NULL) {
     p = p->next;
   } /*p points to the last element*/
   node *element = (node*) malloc(sizeof(node));
@@ -28,13 +28,14 @@ int size(node *l){
     return 0;
   }
   // Counter variable
-  int i;
+  int i = 0;
   /* Creating pointer, to the pointer l, used to examine the next "next" pointer*/
-  node *p; 
+  node *p = l; 
   while (p->next != NULL) {
-    i++;
     /*Checking next "next" pointer and checking if it is NULL*/
     p = p->next;
+    
+    i++;
   }
     return i;
 }
@@ -65,5 +66,4 @@ int largest(node *l){
     p = p->next;
   }
     return largest;
-    return -1;
 }

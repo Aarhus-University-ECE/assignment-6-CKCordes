@@ -9,7 +9,7 @@ int max(int* numbers, int size)
     /* Variable for storing the maximum value of the array
     Initialised as the first to make sure it checks all nums.*/
     int max = numbers[0];
-    for(int i = 0; i < size; i++){
+    for(int i = 1; i < size; i++){
         // Checks if the actual number is the largest
         if(numbers[i] > max) {
             max = numbers[i];
