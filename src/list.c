@@ -2,6 +2,7 @@
 #include <assert.h> /*assert*/
 #include <stdlib.h> /*malloc*/
 
+
 typedef struct node {
   int data;
   struct node *next;
@@ -22,10 +23,20 @@ void add(node *head, int x){
 }
 
 int size(node *l){
-    // Excercise 3b)
-    // Add your code here... 
-
-    return -1;
+  assert(l != NULL);
+  if(l->next == NULL) {
+    return 0;
+  }
+  // Counter variable
+  int i;
+  /* Creating pointer, to the pointer l, used to examine the next "next" pointer*/
+  node *p; 
+  while (p->next != NULL) {
+    i++;
+    /*Checking next "next" pointer and checking if it is NULL*/
+    p = p->next;
+  }
+    return i;
 }
 
 void printout(node *l) {
@@ -35,14 +46,24 @@ void printout(node *l) {
     node *p = l->next;
     while (p!=NULL){
       printf("%d, ",p->data);
+      p = p->next;
     }
     printf("\n");
 }
 
 int largest(node *l){
-    /*Excercise 3e) Add your code below.
+  /*Excercise 3e) Add your code below.
       pre: head points to the first, empty element. The last element's next is NULL. size(l>0)
       post: returns the largest value of the list*/
-    return -1; 
+  assert(l != NULL && size(l) > 0);
+  node *p = l;
+  int largest = p->next->data;
+  while (p->next != NULL) {
+    if(largest < p->data){
+      largest = p->data;
+    }
+    p = p->next;
+  }
+    return largest;
+    return -1;
 }
-
